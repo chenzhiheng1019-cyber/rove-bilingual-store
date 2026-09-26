@@ -1,0 +1,2 @@
+import {tr,useLocale} from '../i18n';
+export default function QuantitySelector({value,onChange}:{value:number;onChange:(n:number)=>void}){useLocale();return <div className="quantity"><button aria-label={tr("Decrease quantity")} disabled={value<=1} onClick={()=>onChange(value-1)}>{tr("−")}</button><span aria-label={tr("Quantity")}>{tr(value)}</span><button aria-label={tr("Increase quantity")} disabled={value>=99} onClick={()=>onChange(value+1)}>{tr("+")}</button></div>}

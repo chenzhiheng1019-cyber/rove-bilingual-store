@@ -1,0 +1,4 @@
+import {asset} from '../utils/asset';
+import {tr,useLocale} from '../i18n';
+import {useState} from 'react';import type {Product} from '../types/product';
+export default function ProductGallery({p}:{p:Product}){useLocale();const [index,set]=useState(1);return <div className="gallery-wrap"><div className="gallery" onScroll={e=>set(Math.round(e.currentTarget.scrollLeft/e.currentTarget.clientWidth)+1)}>{tr(['Side profile','Upper material detail','Cushioning and outsole detail','In the field'].map((s,i)=><figure key={s} className={'gallery-image view-'+i}><img src={i===3?asset('/assets/campaign.webp'):p.image} alt={tr(`${p.name} — ${s}`)}/><figcaption>{tr("0")}{tr(i+1)}{tr(" / ")}{tr(s.toUpperCase())}</figcaption></figure>))}</div><span className="gallery-counter">{tr(index)}{tr(" / 4")}</span></div>}

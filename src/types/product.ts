@@ -1,0 +1,1 @@
+export interface Product {id:string;name:string;category:string;color:string;price:number;originalPrice?:number;description:string;gender:string[];badge:string;image:string;colors:string[];index:number}

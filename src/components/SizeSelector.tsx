@@ -1,0 +1,2 @@
+import {tr,useLocale} from '../i18n';
+export default function SizeSelector({size,onChange}:{size:number|null;onChange:(n:number)=>void}){useLocale();return <div className="sizes">{tr(Array.from({length:10},(_,i)=>i+36).map(n=><button key={n} type="button" disabled={n===36||n===44} aria-label={tr(`Size ${n}${n===36||n===44?' sold out':''}`)} aria-pressed={size===n} className={size===n?'selected':''} onClick={()=>onChange(n)}>{tr(n)}{tr((n===36||n===44)&&<span className="sr-only">{tr(" Sold out")}</span>)}</button>))}</div>}
