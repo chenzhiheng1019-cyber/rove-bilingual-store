@@ -12,7 +12,7 @@ export default function ProductCard({p}:{p:Product}){useLocale();
  const cart=useCart();
  return <article className="product-card">
   <div className="product-visual">
-   <Link to={'/product/'+p.id} aria-label={tr(p.name)}><img src={p.image} alt={tr(`${p.name}, ${p.color}, side profile`)} loading="lazy"/><img className="alternate" src={p.image} alt={tr("")} loading="lazy"/></Link>
+   <Link to={'/product/'+p.id} aria-label={tr(p.name)}><img src={p.image} alt={tr(`${p.name}, ${p.color}, side profile`)} width={314} height={314} decoding="async" loading="lazy"/><img className="alternate" src={p.image} alt="" aria-hidden="true" width={314} height={314} decoding="async" loading="lazy"/></Link>
    {tr(p.badge&&<span className={'badge '+p.badge.toLowerCase().replace(' ','-')}>{tr(p.badge)}</span>)}
    <button className={'favorite icon '+(liked?'liked':'')} aria-label={tr((liked?'Unsave ':'Save ')+p.name)} aria-pressed={liked} onClick={()=>setLiked(!liked)}><Heart size={18} fill={liked?'currentColor':'none'}/></button>
    <button className="quick" onClick={()=>{setQuick(true);setSize(null);setError('')}} aria-label={tr('Quick add '+p.name)}>{tr("QUICK ADD ")}<ArrowUpRight size={16}/></button>
